@@ -1,21 +1,21 @@
-// Операторы присваивания
+// Типы данных
+let a = 5;
+let b = 5.6;
+console.log(typeof a);
+console.log(typeof b);
+a = 'строка';
+console.log(typeof a);
+e = 'sdfsf';
+console.log(typeof e);
 
-let age = 18 + 5;
-age += 2; // age = age + 2
-age -= 3; // age = age - 2
-age *= 2; // age = age * 2
-age /= 2; // age = age / 2
 
-age++; // age = age + 1
-age--; // age = age -1 
+let isAdmin = false;
+console.log(typeof isAdmin);
 
+let c;
+console.log(typeof c);
+c = 5;
+console.log(typeof c);
 
-console.log (age);
-
-// Операторы сравнения
-const vasia = 20;
-console.log (age > vasia);
-console.log (age >= vasia);
-console.log (age < vasia);
-console.log (age <= vasia);
-console.log (age == vasia);
+let d = null; // object
+console.log(d == null);
