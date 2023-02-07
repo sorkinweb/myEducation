@@ -1,21 +1,30 @@
-// Типы данных
-let a = 5;
-let b = 5.6;
-console.log(typeof a);
-console.log(typeof b);
-a = 'строка';
-console.log(typeof a);
-e = 'sdfsf';
-console.log(typeof e);
+/*
+Ваша часовая ставка 80$ и вы готовы работать не более 5 часов в день 5 дней в неделю (кроме выходных).
+К вам приходит заказчик и предлагает заказ на 40 часов работы. Сейчас понедельник. 
+Вы должны уехать через 11 дней.
+Выведете в консоль:
+- Boolean переменную успеете ли вы взяться за работу
+- Сколько вы за неё попросите?
+*/
 
 
-let isAdmin = false;
-console.log(typeof isAdmin);
+// Мой вариант
+const task = 40;
+const sumHour = 45;
+const salaryHour = 80;
+let readyForWork = sumHour >= task;
+let fee = salaryHour * task;
 
-let c;
-console.log(typeof c);
-c = 5;
-console.log(typeof c);
+//Результат
+console.log('Возьмусь ли я за эту работу? ' + readyForWork);
+console.log('За эту работу я возьму: ' + fee);
 
-let d = null; // object
-console.log(d == null);
+// Вариант Антона
+const payRateUSD = 80;
+const projectHours = 40;
+const availableDays = (11 - 2) * 5;
+
+// Результат
+console.log ('Смогу ли я работать? ' + (availableDays > projectHours));
+console.log ('Стоимость работ: ' + projectHours * payRateUSD);
+
