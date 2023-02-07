@@ -1,16 +1,13 @@
-const projectName = 'Сайт магазина';
-const price = 2000;
-const author = 'Василий Пупкин';
+const age = '18';
+console.log(Number(age) + 5);  // Преобразование типов
+console.log(age - 3);
+const userName = 'Вася';
+console.log(Number(userName) + 5); 
+console.log(typeof NaN);
 
-const template = author + ' заказал ' + projectName + ' по цене ' + price + '$';
-console.log (template);
+console.log(String(4) + 7); // Число в строку
+console.log(Boolean('') + 10); // Булевое значение. 0 - false. 1 - true
+console.log(true + 2); 
 
-const template2 = `${author} заказал ${projectName} по цене ${price}$`;
-console.log (template2);
-
-const template3 = 'Проект \n' + 'Цена: ' + price + '$';
-console.log (template3);
-
-const template4 = `Проект
-Цена: ${price}$`;
-console.log (template4);
+const a = 2 + '10';
+console.log(a - 10);
