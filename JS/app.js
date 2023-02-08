@@ -1,50 +1,22 @@
-const role = 'manager';
+const fordFocusPrice = 100000;
+const budjet = 20000;
 
-if (role === 'manager') {
-    console.log('Менеджер');
-} else if (role === 'admin') {
-    console.log('Админ');
-} else if (role ==='ceo') {
-    console.log('CEO');
+let message;
+if (budjet > fordFocusPrice) {
+    message = 'Ford';
 } else {
-    console.log('Мы тебя не знаем!');
+    message = 'Велосипед';
 }
 
-switch (role) {
-    case 'manager': // role === 'manager'. 2+ варианта и уже лучше использовать switchcase
-        console.log('Менеджер');
-        break;
-    case 'admin': 
-        console.log('Админ');
-        break;
-    case 'ceo':
-        console.log('CEO')
-        break;
-    default:
-        console.log('Мы тебя не знаем!');
-}
+console.log(`Я хочу купить ${budjet > fordFocusPrice ? 'Ford' : 'Велосипед'}`);
 
+// Суть такова, что есть короткая запись наших else / if называющаяся тернарный оператор
+// Лучше не вкладывать один тернарный оператор в другой, т.к. читаются очень плохо
 
-switch (role) {
-    case 'manager':
-    case 'admin': 
-        console.log('Не руководитель');
-        break;
-    case 'ceo':
-        console.log('Руководитель')
-        break;
-    default:
-        console.log('Мы тебя не знаем');
-}
+10 > 0 ? console.log('Больше 0') : console.log('Не больше'); //Эта запись равносильна записи ниже
 
-const num = 1;
-switch(true) {
-    case num > 0: //true === num > 0
-        console.log('Положительный')
-        break;
-    case num < 0:
-        console.log('Отрицательный')
-        break;
-    default:
-        console.log('Ноль!')
+if (10>0) {
+    console.log('Больше 0');
+} else {
+    console.log('Не больше');
 }
