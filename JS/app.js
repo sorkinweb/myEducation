@@ -1,22 +1,44 @@
-const fordFocusPrice = 100000;
-const budjet = 20000;
+/*
+    Методом prompt получите ответ пользователя на вопрос "Сколько будет 7 + или - 15". 
+    Если ответ верен выведите в консоль "Успех", если нет - "Вы робот!", а если он введет
+    "Я не робот", то тоже "Успех".
+*/
 
-let message;
-if (budjet > fordFocusPrice) {
-    message = 'Ford';
-} else {
-    message = 'Велосипед';
+// Мой вариант
+const answer = prompt ('Сколько будет 7 + или - 15');
+switch(true) { //через switch(true)!
+    case answer === 'Я не робот':
+    case Number(answer) === -8: //Главное типизировать данные. Тип(переменная) === нужный результат:
+    case Number(answer) === 22:
+        console.log('Успех'); 
+        break;
+    default:
+        console.log ('Вы робот!')
 }
 
-console.log(`Я хочу купить ${budjet > fordFocusPrice ? 'Ford' : 'Велосипед'}`);
+// Вариант Антона
+const res = prompt ('Сколько будет 7 + или - 15');
+switch(true) {
+    case res === 'Я не робот':
+    case Number(res) === 22:
+    case Number(res) === -8:
+        console.log ('Успех');
+        break;
+    default:
+        console.log ('Вы робот!');
+}
 
-// Суть такова, что есть короткая запись наших else / if называющаяся тернарный оператор
-// Лучше не вкладывать один тернарный оператор в другой, т.к. читаются очень плохо
-
-10 > 0 ? console.log('Больше 0') : console.log('Не больше'); //Эта запись равносильна записи ниже
-
-if (10>0) {
-    console.log('Больше 0');
+const res1 = prompt ('Сколько будет 7 + или - 15');
+if (res1 === 'Я не робот') {
+    console.log('Успех');
 } else {
-    console.log('Не больше');
+    const res1Num = Number(res1);
+    switch (res1Num) {
+        case 22:
+        case -8:
+            console.log('Успех');
+            break;
+        default:
+            console.log('Вы робот!');
+    }
 }
