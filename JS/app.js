@@ -1,18 +1,29 @@
-// Введение в функции
+// Анонимные функции
 
-function logName(name, surname) {
-    console.log(`Моё имя ${name} ${surname}`);
+function powerOfTwo (num) {
+    return num * num;
+}
+console.log(powerOfTwo (5));
+
+
+const poft = function (num) { // анонимная функция
+    return num * num;
 }
 
-logName('Александр' , 'Соркин');
+console.log(poft(6)); // функцию можно положить в константу / положить ее как аргумент другой функции и т.д.
 
-function countDepositSum(depositInUSD, month, rate) {
-    const sum = depositInUSD * (1 + rate / 12) ** month;
-    return sum;
+// Стрелочные функции
+
+function powerOfThree(num) {
+    console.log(num);
+    return num * num * num;
 }
 
-const example1 = countDepositSum(1000, 24, 0.12);
-console.log(example1);
+console.log(powerOfThree(5));
 
-const example2 = countDepositSum(1000, 48, 0.10);
-console.log(example2);
+const pof3 = (num) => { // стрелочная функция
+    console.log(num);
+    return num * num * num;
+};
+
+console.log(pof3(6));
