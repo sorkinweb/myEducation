@@ -1,29 +1,22 @@
-// Анонимные функции
+// Упражнение. Упрощение функции
 
-function powerOfTwo (num) {
-    return num * num;
-}
-console.log(powerOfTwo (5));
-
-
-const poft = function (num) { // анонимная функция
-    return num * num;
+function toPower(num, power) {
+    const res = num ** power;
+    return res;
 }
 
-console.log(poft(6)); // функцию можно положить в константу / положить ее как аргумент другой функции и т.д.
+console.log(toPower (2, 3));
 
-// Стрелочные функции
+// Переписать в стрелочную функцию.
+// Мой вариант
 
-function powerOfThree(num) {
-    console.log(num);
-    return num * num * num;
+const toPowerArrow = (num, power) => {
+    return num ** power;
 }
 
-console.log(powerOfThree(5));
+console.log(toPowerArrow(2, 3));
 
-const pof3 = (num) => { // стрелочная функция
-    console.log(num);
-    return num * num * num;
-};
+// Вариант Антона
 
-console.log(pof3(6));
+const toPowerArrow1 = (num, power) => num ** power;
+console.log(toPowerArrow1(2, 3));
