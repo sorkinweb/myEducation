@@ -1,47 +1,23 @@
-// Логические операторы
+/*
+    Упражнение (проверка прав)
+    Пользователь хочет приобрести игру в магазине.
+    Он может это сделать только если:
+    -Его баланс больше 1000 (balance) 
+    или его число бонусов больше 100 (bonuceBalance)
+    -Он не забанен (isBanned)
+    -Игра не куплена (isExist)
+    -Игра в продаже (isSelling)
+    Напишите условие для покупки и выведите в консоль результат
+*/
 
-const isAdmin = true;
-const canWrite = true;
+// Мое решение
 
-console.log(`Системный файл ${isAdmin && canWrite}`);
-console.log(`Обычный файл ${isAdmin || canWrite}`);
-console.log(`Инвертируем права админа ${!isAdmin}`);
+const balance = 1001;
+const bonuceBalance = 101;
+const isBanned = false;
+const isExist = false;
+const isSelling = true;
+const canBuy = (balance > 1000 || bonuceBalance > 100) && (!isBanned && !isExist) && isSelling; 
+console.log(`Могу ли я купить игру? ${canBuy ? 'Да' : 'Нет'}`); 
 
-
-const isEdited = true;
-const isSuperAdmin = true;
-
-console.log(`Системный файл с редактированием ${isAdmin && canWrite && !isEdited}`);
-console.log(`Системный файл с редактированием ${isAdmin && canWrite && (!isEdited || isSuperAdmin)}`);
-
-let a = 7;
-if (a === -8 || a === 22) {
-
-}
-
-// Операторы с другими типами
-
-console.log ('Вася' || 'Олег');
-console.log (false || 'Олег');
-console.log ('Вася' || false);
-console.log (false || false);
-
-console.log ('Вася' && 'Олег');
-console.log (false && 'Олег');
-console.log ('Вася' && false);
-console.log (false && false);
-
-let abc = 'Марина';
-const userName = abc || 'Петя';
-console.log(userName);
-
-const isFireman = true;
-const fileName = isFireman && 'file.mp4';
-console.log (fileName);
-
-
-// Оператор нулевого слияния
-
-const clientName = '';
-console.log(clientName || 'Default Clientname');
-console.log(clientName ?? 'Default Clientname');
+// Решение Антона (примерно тоже самое)
