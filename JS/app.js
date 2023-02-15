@@ -1,45 +1,50 @@
-// Параметры по умолчанию
+/*
+    Пользователь:
+    -Возраст
+    -Наличие работы
+    -Деньги
+    Нужно проверить может ли он купить новый Macbook за 2000$?
+    Он может брать не только свои деньги, но и взять кредит.
+    Ему дадут 500$, только если ему больше 24х-лет и он
+    имеет работу, 100 если ему просто больше 24х-лет и 0 в ином случае.
+    Напишите функцию, которая принимает данные пользователя и товара
+    и возвращает true или false;
+*/
 
-function toPower(num, power = 2) {
-    const res = num ** power;
-    return res;
-}
+ // Мой вариант
 
-console.log(toPower(2, 3));
-console.log(toPower(2));
-
-// Условия в функциях
-
-function canAccesWebsite(age) {
-    if (age < 18) {
-        return 'Нет';
+ function creditOpportunity(age1, employment = false) {
+    if ((age1 >= 24) && employment) {
+        return 500;
+    } else if (age1 >= 24) {
+        return 100;
+    } else {
+        return 0;
     }
-        return 'Да';
+ }
+
+ function canBuy1 (productPrice, age1, money, employment = false) {
+    const creditMoney = creditOpportunity(age1, employment);
+    return productPrice <= money + creditMoney;
 }
 
-console.log(canAccesWebsite(16));
+console.log(canBuy1(2000,24,1900, true));
 
-const canAccesWebsite2 = age => age < 18 ? 'Нет' : 'Да';
-console.log(canAccesWebsite2(16));
+// Код Антона
 
-// Функции в функциях
-
-const KG_IN_USD = 7;
-const KM_IN_USD = 5;
-
-function calculateW(present) {
-    return present * KG_IN_USD;
+function computeCredit(age, hasJob = false) {
+    switch(true) {
+        case age >= 24 && hasJob:
+            return 500;
+        case age >= 24:
+            return 100;
+        default:
+            return 0;
+    }
+}
+function canBuy(productPrice, age, money, hasJob = false) {
+    const creditMoney = computeCredit(age, hasJob);
+    return productPrice <= money + creditMoney;
 }
 
-function calculateKm( distance) {
-    return  distance * KM_IN_USD;
-}
-
-function getExchangePrice(present1, present2, distance) {
-    const price1 = calculateW(present1);
-    const price2 = calculateW(present2);
-    const distancePrice = calculateKm(distance)
-    return price1 + price2 + distancePrice;
-}
-
-console.log(getExchangePrice(1,2,10));
+console.log(canBuy(2000,24,1700, true));
