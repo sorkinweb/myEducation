@@ -1,23 +1,20 @@
-// Управление элементами массива
+// Поиск элемента
 
-const users = ['Аня', 'Вика', 'Катя'];
-console.log(users);
-users[2] = 'Кристина';
-console.log(users);
+const roles = ['user', 'admin', 'manager'];
 
-const arrLenght = users.push('Никита');
-console.log(users); // возвращает длину массива (так работает функция push).
-console.log(arrLenght);  // добавляет элемент в конец массива
+const elIndex = roles.indexOf('admin');
+console.log(elIndex);
 
+const elIndex2 = roles.indexOf('superuser'); // несуществующий элемент показывается как -1
+console.log(elIndex2);
 
-users.unshift('Вася');
-console.log(users); // unshift добавляет элемент в начало массива
+if (roles.indexOf('admin') >= 0) {  // любой элемент (если он есть) будет положительным или 0
+    console.log('Доступ есть');
+}
 
-const el = users.pop();
-console.log(el); // pop возвращает удаленный элемент
-console.log(users); // pop удаляет последний элемент массива
+console.log(roles.includes('admin')); // includes возвращается булевое значение 
+console.log(roles.includes('superuser'));
 
-const el2 =users.shift();
-console.log(el2); // shift возвращает удаленный элемент
-console.log(users); // shift удаляет нулевой элемент массива
-
+if (roles.includes('admin')) {
+    console.log('Доступ есть');
+}
