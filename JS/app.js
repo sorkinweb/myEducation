@@ -1,50 +1,26 @@
-/*
-    Пользователь:
-    -Возраст
-    -Наличие работы
-    -Деньги
-    Нужно проверить может ли он купить новый Macbook за 2000$?
-    Он может брать не только свои деньги, но и взять кредит.
-    Ему дадут 500$, только если ему больше 24х-лет и он
-    имеет работу, 100 если ему просто больше 24х-лет и 0 в ином случае.
-    Напишите функцию, которая принимает данные пользователя и товара
-    и возвращает true или false;
-*/
+// Знакомство с массивами
 
- // Мой вариант
+const role1 = 'admin';
+const role2 = 'user';
+const role3 = 'superuser';
 
- function creditOpportunity(age1, employment = false) {
-    if ((age1 >= 24) && employment) {
-        return 500;
-    } else if (age1 >= 24) {
-        return 100;
-    } else {
-        return 0;
-    }
- }
+const roles = ['admin', 'user', 'superuser'];
+const userinfo = ['Аня', 25];
+console.log(roles);
+console.log(roles[0]); // admin
+console.log(roles.length); // 3
+console.log(roles[roles.length - 1]); // superuser
 
- function canBuy1 (productPrice, age1, money, employment = false) {
-    const creditMoney = creditOpportunity(age1, employment);
-    return productPrice <= money + creditMoney;
+console.log(roles.at(0)); // admin
+console.log(roles.at(-1)); // superuser
+
+const usersAge = [2040 - 2022, 20 - '6', 10 > 0 ? 5 : 0]; 
+console.log(usersAge); // 18, 14, 5
+
+const userNames = new Array('Вася', 'Петя', 'Катя');
+console.log(userNames); // 'Вася', 'Петя', 'Катя'
+
+function square (el) {
+    return el * el;
 }
-
-console.log(canBuy1(2000,24,1900, true));
-
-// Код Антона
-
-function computeCredit(age, hasJob = false) {
-    switch(true) {
-        case age >= 24 && hasJob:
-            return 500;
-        case age >= 24:
-            return 100;
-        default:
-            return 0;
-    }
-}
-function canBuy(productPrice, age, money, hasJob = false) {
-    const creditMoney = computeCredit(age, hasJob);
-    return productPrice <= money + creditMoney;
-}
-
-console.log(canBuy(2000,24,1700, true));
+console.log(square(5));
