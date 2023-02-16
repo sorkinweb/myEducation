@@ -1,26 +1,23 @@
-// Знакомство с массивами
+// Управление элементами массива
 
-const role1 = 'admin';
-const role2 = 'user';
-const role3 = 'superuser';
+const users = ['Аня', 'Вика', 'Катя'];
+console.log(users);
+users[2] = 'Кристина';
+console.log(users);
 
-const roles = ['admin', 'user', 'superuser'];
-const userinfo = ['Аня', 25];
-console.log(roles);
-console.log(roles[0]); // admin
-console.log(roles.length); // 3
-console.log(roles[roles.length - 1]); // superuser
+const arrLenght = users.push('Никита');
+console.log(users); // возвращает длину массива (так работает функция push).
+console.log(arrLenght);  // добавляет элемент в конец массива
 
-console.log(roles.at(0)); // admin
-console.log(roles.at(-1)); // superuser
 
-const usersAge = [2040 - 2022, 20 - '6', 10 > 0 ? 5 : 0]; 
-console.log(usersAge); // 18, 14, 5
+users.unshift('Вася');
+console.log(users); // unshift добавляет элемент в начало массива
 
-const userNames = new Array('Вася', 'Петя', 'Катя');
-console.log(userNames); // 'Вася', 'Петя', 'Катя'
+const el = users.pop();
+console.log(el); // pop возвращает удаленный элемент
+console.log(users); // pop удаляет последний элемент массива
 
-function square (el) {
-    return el * el;
-}
-console.log(square(5));
+const el2 =users.shift();
+console.log(el2); // shift возвращает удаленный элемент
+console.log(users); // shift удаляет нулевой элемент массива
+
