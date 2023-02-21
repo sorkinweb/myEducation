@@ -1,39 +1,43 @@
-// slice, splice, concat, reverse
 
-const roles = ['user', 'admin', 'manager', 'superuser'];
+/*
+    Упражнение. Обновление списка задач
+    Дан список задач
+    const tasks = ['Задача 1'];
+    Сделать функции:
+    - Добавление задачи в конец
+    - Удаление задачи по названию
+    - Перенос задачи в начало списка по названию
+    Всегда меняем исходный массив
+*/
+const tasks = ['Задача 1'];
 
-// slice
+function addTask (task) {
+    tasks.push(task);
+}
 
-const res = roles.slice(2);
-console.log(roles); // slice не модифицировал исходный массив
-console.log(res); // slice(2) взял элемент со второго до конца и выдал результат. отрезал кусок начиная со 2
+function deleteTask (task) {
+    const index = tasks.indexOf(task)
+    if (index === -1) {
+        return;
+    }
+    tasks.splice(index,1);
+}
 
-const res2 = roles.slice(2, 3); // взял элемент с 2 по 3, НЕ ВКЛЮЧАЯ второй аргумент(3)
-console.log(res2); // manager
+function transferTask (task) {
+    const index = tasks.indexOf(task)
+     if (index === -1) {
+        return;
+    }
+    tasks.splice(index,1);
+    tasks.unshift(task);
+}
 
-const res3 = roles.slice(-1); // берет последний элемент массива
-console.log(res3); // superuser
+addTask('Задача 2');
+addTask('Задача 3');
+console.log(tasks);
 
-const res4 = roles.slice(1, -1); // от 1 до -1 (не включая второй аргумент)
-console.log(res4); // admin, manager
+deleteTask('Задача 4');
+console.log(tasks);
 
-// splice
-
-// const res5 = roles.splice(2);
-// console.log(res5); // manager, superuser
-// console.log(roles); // splice модифицировал исходный массив!
-
-// const res6 = roles.splice(2,2);
-// console.log(res6); // manager, superuser
-// console.log(roles);
-
-// reverse
-
-const res7 = roles.reverse(); // переворачивает массив и также модифицирует исходный массив
-console.log(res7);
-
-// concat
-
-const newRoles = ['sysadmin', 'developer']
-const res8 = roles.concat(newRoles);
-console.log(res8);
+transferTask('Задача 4');
+console.log(tasks);
