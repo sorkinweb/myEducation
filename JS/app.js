@@ -1,35 +1,21 @@
-// Принцип DRY. Don`t Repeat Yourself
-// Если мы повторяем какую-то часть кода, то это повод задуматься о том, что, возможно, эту часть кода нужно вынести в отдельную функцию.
+// Деструктуризация
 
+const userData = ['Антон', 18, 'Москва'];
 
-const tasks = ['Задача 1'];
-
-function addTask (task) {
-    tasks.push(task);
+function getData() {
+    return ['Антон', 18, 'Москва'];
 }
 
-function deleteTask (task) {
-    const index = tasks.indexOf(task);
-    if (index === -1) {
-        return;
-    }
-    return tasks.splice(index,1);
-}
+// const userName = getData[0];
+// const age = getData[1];
+// const city = getData[2];
 
-function transferTask (task) {
-    const result = deleteTask(task);
-    if (!result) { 
-        return;
-    }   
-        tasks.unshift(result[0]);
-}
+const [userName, age, city] = userData;
 
-addTask('Задача 2');
-addTask('Задача 3');
-console.log(tasks);
+console.log(userName, age, city);
 
-deleteTask('Задача 2');
-console.log(tasks);
+// Rest оператор
 
-transferTask('Задача 3');
-console.log(tasks);
+const data = [1, 2, 3, 4, 5, 6];
+const [one, two, ...others] = data;
+console.log(one, two, others);
