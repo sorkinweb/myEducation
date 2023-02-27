@@ -1,21 +1,25 @@
-// Деструктуризация
+/*
+    Дан произвольный url вида - https://purpleschool.ru/course/javascript
+    Нужно сделать функцию, которая выводит в консоль:
+    Протокол (https)
+    Доменное имя (purpleschool.ru)
+    Путь внутри сайта (/course/javascript)
+*/
 
-const userData = ['Антон', 18, 'Москва'];
+const url = 'https://purpleschool.ru/course/javascript'
+const url2 = 'purpleschool.ru/course/javascript'
 
-function getData() {
-    return ['Антон', 18, 'Москва'];
+function getParts(url) {
+    const [protocol, _, host, ... path]  = url.split('/');
+    if (protocol === 'https:' || protocol === 'http:') {
+        if (!host.includes('.')) {
+            return;
+        }
+    console.log(protocol, _, host, path);
+    console.log(`Протокол: ${protocol.split(':')[0]}`);
+    console.log(`Доменное имя: ${host}`);
+    console.log(`Путь внутри сайта: /${path.join('/')}`);
+    }
 }
 
-// const userName = getData[0];
-// const age = getData[1];
-// const city = getData[2];
-
-const [userName, age, city] = userData;
-
-console.log(userName, age, city);
-
-// Rest оператор
-
-const data = [1, 2, 3, 4, 5, 6];
-const [one, two, ...others] = data;
-console.log(one, two, others);
+getParts(url);
