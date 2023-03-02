@@ -1,32 +1,15 @@
-// Цикл while
-
-for (let i = 1; i < 5; i++) {
-    console.log(`Вывод - ${i}`);
-} 
-
-// let i = 1;
-// while (i < 5) {
-//     console.log(`Вывод - ${i}`);
-//     i++;
-// }
+// Циклы for of и for in
 
 const arr = [1, 4, 8, 7];
 
 for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > 5) {
-        break;
-    }
-    console.log(arr[i]); // 1, 4
-} 
-
-let i = 0;
-while (arr[i] <= 5  && i < arr.length) {
-    console.log(arr[i]); // 1, 4
-    i++;
+    console.log(arr[i]);
 }
 
-let j = 0;
-do {
-    console.log(j); // 0
-    j++
-} while (j < 0);
+for (let element of arr) { // чтобы перебрать целиком весь массив и сделать какую операцию с ним (итерируется по значениям)
+    console.log(element);
+}
+
+for (let index in arr) { // итерируется по индексам массива
+    console.log(index);
+}
