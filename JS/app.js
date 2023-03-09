@@ -1,65 +1,28 @@
-// Упражнение. Расчет итогового баланса
+// Callback
 
-/*
-    Есть выгрузка операций пользователя
-    const operations = [1000, -700, 300, -500, 10000];
-    а так же начальный баланс в 100$
-    Необходимо сделать функции расчета:
-    - Итогового баланса
-    - Наличия отрицательного баланса (если после очередной операции баланс < 0, то выдавать false)
-    - Расчета среднего расхода и среднего дохода  
-*/
-
-const operations = [1000, -700, 300, -500, 10000];
-const startingBalance = 100;
-
-// Итоговый баланс
-function getBalance(arrayofOperations, initialBalance) {
-    let balance = initialBalance; 
-    for (const element of arrayofOperations) {
-        balance += element;
-    }
-        return balance;
+function add(a, b) {
+    return a + b;
 }
 
-console.log(getBalance(operations, startingBalance)); // 10200
-
-// Наличие отрицательного баланса
-
-function checkOperations(arrayofOperations, initialBalance) {
-    let balance = initialBalance;
-    let isOk = true;
-    for (const element of arrayofOperations) {
-        balance += element;
-        if (balance < 0) {
-            isOk = false;
-            break;
-        }
-    }
-    return isOk;
+function subtract (a, b) {
+    return a - b;
 }
 
-console.log(checkOperations(operations, startingBalance)); // true
-
-
-// Расчет среднего дохода / расхода
-
-function avarageOperations (arrayofOperations) {
-    let positiveCount = 0;
-    let positiveSum = 0;
-    let negativeCount = 0;
-    let negativeSum = 0;
-    for (const element of arrayofOperations) {
-        if (element > 0) {
-            positiveCount ++;
-            positiveSum += element;
-        }
-                if (element < 0) {
-            negativeCount ++;
-            negativeSum += element;
-        }
-    }
-    return [positiveSum / positiveCount, negativeSum / negativeCount];
+function power(a, b) {
+    return a ** b;
 }
 
-console.log(avarageOperations(operations));
+// Функция высшего порядка
+
+function calculate(a, b, fn) {
+    console.log(fn.name);
+    const res = fn(a, b);
+    return res;
+}
+
+let res = calculate(3, 5, add);
+console.log(res);
+res = calculate(3, 5, subtract);
+console.log(res);
+res = calculate(3, 5, power)
+console.log(res);
